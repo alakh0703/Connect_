@@ -1,0 +1,88 @@
+.Sidebar_main {
+    width: 12%;
+    background-color: #f5f5f5;
+}
+.Sidebar_Compose {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.Sidebar_ComposeText {
+    width: 80%;
+    height: 100%;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: rgb(234, 140, 111);
+    font-size: 1.1rem;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+.Sidebar_Menu {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Sidebar_ComposeImg {
+    width: 20%;
+    margin-right: 5px;
+    color: white;
+}
+.Sidebar_MenuText {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    margin: 5px 10px 5px 0;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.Sidebar_MenuText:hover {
+    background-color: rgb(234, 140, 111);
+    color: white;
+}
+.active {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    margin: 5px 10px 5px 0;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+     background-color: rgb(234, 140, 111);
+    color: white;
+}
+
+.compose {
+    position: absolute;
+    background-color: rgb(255, 254, 254);
+    right: 20px;
+    bottom: 0px;
+    width: 40%;
+    background-color: rgb(255, 255, 255);
+}
+.composeMax {
+    position: absolute;
+    background-color: rgb(255, 254, 254);
+    right: 8%;
+    bottom: 0px;
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+}
+

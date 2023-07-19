@@ -1,0 +1,49 @@
+.P_main {
+    position: absolute;
+    top: 8vh;
+    width: 15vw;
+    box-shadow:  6px 6px 29px #c7c7c7,
+    -6px -6px 29px #f9f9f9;
+    padding: 15px;
+    border-radius: 4px;
+    z-index: 100;
+    background-color: white;
+}
+.PH_profile {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgb(229, 125, 125);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.P_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.P_Options {
+    margin-top: 10px;
+}
+.PO_signout {
+    width: 100%;
+    height: 40px;
+    border: none;
+    display: flex;
+    align-items: center;
+    color: grey;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding-left: 10px;
+}
+.PO_signout:hover {
+    background-color: rgb(215, 227, 235);
+}
+
+
+.PH_username {
+    margin-bottom: 5px;
+    color: grey;
+}

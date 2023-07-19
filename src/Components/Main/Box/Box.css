@@ -1,0 +1,33 @@
+.reloadIcon {
+    width: 20px;
+    cursor: pointer;
+    margin: 5px;
+}
+.b_main {
+    border-radius: 5px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+.b_nav {
+    width: 100%;
+    border-radius: 5px;
+    height: fit-content;
+    border-bottom: 1px solid #ccc;
+}
+.b_mail {
+    padding-top: 5px;
+}
+.main_view {
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    left: 0;
+    /* background-color: aqua; */
+    backdrop-filter: blur(2px);
+    
+}

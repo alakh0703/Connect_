@@ -1,0 +1,94 @@
+[
+    {
+      "id": 0,
+      "from": {
+        "name": "John Doe",
+        "email": "john.doe@example.com"
+      },
+      "subject": "Important Announcement",
+      "body": "Dear all, please be informed that there will be a company-wide meeting tomorrow at 10 AM. Attendance is mandatory."
+    },
+    {
+      "id": 1,
+
+      "from": {
+        "name": "Sarah Jones",
+        "email": "sarah.jones@example.com"
+      },
+      "subject": "Invitation to a Party",
+      "body": "Hi everyone, I'm hosting a party this weekend at my place. You're all invited! Please RSVP by Thursday if you can make it. Looking forward to seeing you there."
+    },
+    {
+      "id": 2,
+      "from": {
+        "name": "David Smith",
+        "email": "david.smith@example.com"
+      },
+      "subject": "Project Update",
+      "body": "Team, we've made significant progress on the project. Please review the latest updates on the shared drive and provide your feedback by the end of the day."
+    },
+    {
+      "id": 3,
+      "from": {
+        "name": "Emily Wilson",
+        "email": "emily.wilson@example.com"
+      },
+      "subject": "Payment Reminder",
+      "body": "Hello, this is a gentle reminder that your payment for the invoice sent last week is due in two days. Please ensure timely payment to avoid any late fees."
+    },
+    {
+      "id": 4,
+      "from": {
+        "name": "Michael Brown",
+        "email": "michael.brown@example.com"
+      },
+      "subject": "Congratulations!",
+      "body": "Dear Jane, I wanted to personally congratulate you on your recent promotion. Well done! Your hard work and dedication have paid off. Keep up the great work!"
+    },
+    {
+      "id": 5,
+      "from": {
+        "name": "Example Info",
+        "email": "info@example.com"
+      },
+      "subject": "Exclusive Offer Inside",
+      "body": "Hi there, as a valued customer, we're offering you an exclusive discount of 20% on your next purchase. Don't miss out on this limited-time offer. Use the code \"SUMMER20\" at checkout."
+    },
+    {
+      "id": 6,
+      "from": {
+        "name": "Support Team",
+        "email": "support@example.com"
+      },
+      "subject": "Account Security Alert",
+      "body": "Dear user, we have noticed some unusual activity on your account. To ensure the security of your account, please reset your password immediately by clicking the provided link."
+    },
+    {
+      "id": 7,
+      "from": {
+        "name": "Marketing Department",
+        "email": "marketing@example.com"
+      },
+      "subject": "New Product Launch",
+      "body": "Hello, we're excited to announce the launch of our latest product. It's a game-changer! Check out our website for more information and take advantage of the introductory offer."
+    },
+    {
+      "id": 8,
+      "from": {
+        "name": "Newsletter Subscription",
+        "email": "newsletter@example.com"
+      },
+      "subject": "Monthly Newsletter",
+      "body": "Hi, it's time for our monthly newsletter. In this edition, we'll be sharing the latest industry trends, helpful tips, and exciting updates from our company. Enjoy!"
+    },
+    {
+      "id": 9,
+      "from": {
+        "name": "Sales Team",
+        "email": "sales@example.com"
+      },
+      "subject": "Limited Stock Alert",
+      "body": "Hurry! Our best-selling item is almost out of stock. Don't miss your chance to grab it before it's gone. Visit our website or contact our sales team to place your order."
+    }
+  ]
+  

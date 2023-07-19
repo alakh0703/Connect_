@@ -1,0 +1,110 @@
+.view_main {
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    margin-top: 6%;
+    border-radius: 6px;
+    /* background: #e0e0e0; */
+    box-shadow:  6px 6px 11px #5a5a5a,
+                 -6px -6px 11px #ffffff;
+}
+.view_nav {
+    width: 100%;
+    background-color: rgb(240, 222, 209);
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+.view_back {
+    width:2%;
+    cursor: pointer;
+}
+.view_subject {
+    width: 100%;
+    padding: 5px;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    padding-right: 10px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 2px solid black; */
+}
+.view_subject_right {
+    width: 20%;
+    /* background-color: aqua; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+.view_print {
+    width: 8%;
+    cursor: pointer;
+    height: 100%;
+    margin-right: 10px;
+}
+.view_subject_name {
+    font-size: 1.5rem;
+}
+
+.view_sender {
+    width: 100%;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+.view_sender_profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgb(239, 208, 186);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1%;
+}
+.view_sender_name {
+    font-size: 1.1rem;
+    margin-right: 1%;
+}
+
+.view_body {
+    width: 100%;
+    padding: 5px 2%;
+    height: 500px;
+    /* height: 100%; */
+    /* background-color: azure; */
+    font-size: 0.9rem;
+    overflow-y: auto;
+}
+
+.view_footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* background-color: aquamarine; */
+}
+.view_footer_btn {
+    width: 10%;
+    height: 30px;
+    border-radius: 5px;
+    /* border: none; */
+    /* outline: none; */
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(198, 192, 191);
+
+}
