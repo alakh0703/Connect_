@@ -4,50 +4,141 @@ import './Box.css'
 import Mail from './Mail/Mail'
 import fakeMails from './FakeMails.json'
 import View from './Mail/View/View.js'
+import { useEffect } from 'react';
+import { useState } from 'react';
+import axios from 'axios'
+import { Navigate } from 'react-router-dom'
+import { act } from 'react-dom/test-utils'
 
-import { useState } from 'react'
+
+
 function Box(props) {
 
-  
+  const [mails, setMails] = useState([]); // Set the default active item
+  const [impMails, setImpMails] = useState([]); // Set the default active item
+  const [sentMails, setSentMails] = useState([]); // Set the default active item
+  const [trashMails, setTrashMails] = useState([]); // Set the default active item
+  const [componentLoaded, setComponentLoaded] = useState(false);
+  const [inbox, setInbox] = useState(mails); // Set the default active item
 
   const i = [1,2,3,4,5,6,7,8,9,10]
   const [reload, setReload] = useState(0);
 
   const [ViewMail, setViewMail] = useState(false);
-  var [filter, setFilter] = useState(fakeMails); // Set the default active item
+  var [filter, setFilter] = useState([]); // Set the default active item
 
-  const [entry, setEntry] = useState(['subject','name','cmail','body']);
+  const [entry, setEntry] = useState(['subject','name','cmail','body','id']);
 
   const handleView = (event) => {
-    // id of the component clicked
     const id = event.currentTarget.id;
-    const i = fakeMails[id]
-    entry[0] = i['subject']
-    entry[1] = i['from']['name']
-    entry[2] = i['from']['email']
-    entry[3] = i['body']
-
-    setViewMail(true);
-  }
-
-  console.log(fakeMails)
-  const reloadHandler = () => {
-    setReload(prev => prev+1);
-  }
-
-
-  console.log("first")
-
-
-  React.useEffect(() => {
-    console.log("second")
-    const filtered = fakeMails.filter((item) => {
-      return  item['from']['name'].toLowerCase().includes(props.searchQuery.toLowerCase()) || item['from']['email'].toLowerCase().includes(props.searchQuery.toLowerCase()) 
+  
+  var i = [];
+  if(props.activeItem === 'sent'){
+    i = sentMails.filter((item)=>{
+      return item['unique_id'] === id;
     })
-    setFilter(filtered);
-  },[props.searchQuery])
+  }
+  else {
+    i = mails.filter((item)=>{
+      return item['unique_id'] === id;
+    })
+  }
+
+    
+    // Filtering mails to find the one with the matching unique_id
+    // const i = mails.filter((item) => {
+    //   return item['unique_id'] === id;
+    // });
+    
+    if (i.length > 0) {
+      // Accessing the first element of the filtered array (assuming unique_id is unique)
+      const mail = i[0];
+      // alert(mail.subject);
+  
+      entry[0] = mail.subject;
+      entry[1] = mail.name;
+      entry[2] = mail.from;
+      entry[3] = mail.body;
+      entry[4] = mail.unique_id;
+  
+      setViewMail(true);
+    } else {
+      // Handle the case when no mail is found with the given unique_id
+      alert("Mail not found!");
+    }
+  };
+  
+  const reloadHandler = () => {
+     retriveMails();
+  }
 
 
+
+ async function retriveMails() {
+  // alert('retriveMails')
+        
+    const token = localStorage.getItem('jwtToken')
+    if(!token){
+      // Navigate('/login')
+      return
+    }
+    await axios.get('http://localhost:3000/connect/users/retriveMails', {
+      params: {
+        token: token
+      }
+     })
+    .then((res) => {
+      // console.log(res.data.cmail.received)
+
+      setMails(res.data.cmail.received);
+      setSentMails(res.data.cmail.sent);
+      setFilter(res.data.cmail.received);
+    }
+    )
+    .catch((err) => {
+      console.log(err)
+    })
+
+  }
+
+ useEffect(() => {
+
+  // run the function to retrive mails only `reload` changes
+
+
+  if (!componentLoaded) {
+    retriveMails();
+    setComponentLoaded(true);
+  }
+
+    
+    const impMails = mails.filter((item) => {
+      return item['imp'] === true;
+    });
+
+    const trashMails = mails.filter((item) => {
+      return item['deleted'] === true;
+    });
+    const inboxMails = mails.filter((item) => {
+      return item['deleted'] === false;
+    });
+
+    setTrashMails(trashMails);
+    setInbox(inboxMails);
+    setImpMails(impMails);
+
+   
+  },[props.searchQuery, mails])
+
+  // useEffect(() => {
+  //   const impMails = mails.filter((item) => {
+  //     return item['imp'] === true;
+  //   });
+  //   setImpMails(impMails);
+
+  // },[props.searchQuery, mails])
+
+// console.log(filter)
   return (
     <div className='b_main'>
         <div className='b_nav'>
@@ -55,10 +146,36 @@ function Box(props) {
         </div>
         <div className='b_mail'>
            
-           {props.activeItem === 'inbox' ? filter.map((item,index) => {
+           {/* {props.activeItem === 'inbox' ? filter.map((item,index) => {
                 return <Mail key={index} id={item['id']} name={item['from']['name']} cmail={item['from']['email']} subject={item['subject']} body={item['body']}  viewHandler={handleView}/>
             }) : <p>Oops! You got no mails </p>
+            } */}
+             {props.activeItem === 'inbox' && inbox.map((item,index) => {
+                return <Mail activeItem={props.activeItem} mails={mails} retriveMails={retriveMails} setMails={setMails} key={index} id={item['unique_id']} imp={item['imp']} name={item['fromName']} cmail={item['from']['email']} subject={item['subject']} body={item['body']}  viewHandler={handleView}/>
+            }) 
             }
+
+            {props.activeItem === 'important' && impMails.map((item,index) => {
+                return <Mail activeItem={props.activeItem} mails={mails} retriveMails={retriveMails} setMails={setMails} key={index} id={item['unique_id']} imp={item['imp']} name={item['fromName']} cmail={item['from']['email']} subject={item['subject']} body={item['body']}  viewHandler={handleView}/>
+            })
+            }
+            {
+              props.activeItem === 'sent' && sentMails.map((item,index) => {
+                
+                return <Mail activeItem={props.activeItem} mails={mails} setMails={setMails} key={index} id={item['unique_id']} cmail={item['from']} to={item['to']} subject={item['subject']} body={item['body']}  viewHandler={handleView}/>
+            })
+            }
+
+            {
+              props.activeItem === 'trash' && trashMails.map((item,index) => {
+
+                return <Mail activeItem={props.activeItem} mails={mails} setMails={setMails} key={index} id={item['unique_id']} imp={item['imp']} name={item['fromName']} cmail={item['from']['email']} subject={item['subject']} body={item['body']}  viewHandler={handleView}/>
+            })
+            }
+
+
+            
+
 
             {/* {fakeMails.map((item,index) => {
                 return <Mail key={index} id={item['id']} name={item['from']['name']} cmail={item['from']['email']} subject={item['subject']} body={item['body']}  viewHandler={handleView}/>
@@ -68,7 +185,7 @@ function Box(props) {
 
 
         {ViewMail &&  <div className='main_view'>
-            <View setViewMail={setViewMail} subject={entry[0]} name={entry[1]} cmail={entry[2]} body={entry[3]} />
+            <View setMails={setMails} setViewMail={setViewMail} id={entry[4]} subject={entry[0]} name={entry[1]} email={entry[2]} body={entry[3]} />
         </div>}
        
     </div>

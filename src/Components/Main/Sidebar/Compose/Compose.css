@@ -114,3 +114,9 @@ box-shadow:  8px 8px 14px #d3d3d3,
 
     /* background-color: aqua; */
 }
+
+.footer_error {
+    font-size: 1rem;
+    color: red;
+    font-weight: 500;
+}

@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap');
+.home_main {
+    width: 100%;
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+}
+
+.art0 {
+    width: 90%;
+    margin: 0 auto;
+
+}
+.home_body {
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+    /* background-color: blue; */
+}
+.home_bodyLeft {
+    width: 50%;
+    /* background-color: rgb(106, 106, 218); */
+}
+.home_bodyRight {
+    width: 50%;
+    /* background-color: rgb(188, 188, 222); */
+}
+.title {
+    font-size: 4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.home_title {
+    width: 100%;
+    /* background-color: rgb(164, 97, 97); */
+    padding: 10% 5% 10% 20%;
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(249, 199, 199);
+}
+.login_form {
+    width: 100%;
+    /* background-color: aqua; */
+    padding-left: 20%;
+}

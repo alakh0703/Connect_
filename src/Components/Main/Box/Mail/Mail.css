@@ -9,7 +9,9 @@
     /* border-top: 1px solid #ccc; */
     border-bottom: 1px solid #eae5e5;
     cursor: pointer;
+    align-items: center;
     height: 40px;
+    position: relative;
     font-family: 'Roboto', sans-serif;
 }
 .m_left {
@@ -87,4 +89,14 @@ box-shadow:  5px 5px 8px #d7d7d7,
 }
 .starIcon2:checked {
     background-color: rgb(227, 152, 152);
+}
+
+.restore {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    cursor: pointer;
+    color: #9b9898;
+    position: absolute;
+    right: 50px;
 }

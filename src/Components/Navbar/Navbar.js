@@ -5,6 +5,8 @@ import burgerIcon from '../../Images/burger.png';
 import Searchbar from './Searchbar/Searchbar';
 import Profile from './Profile/Profile';
 import { useState,  } from 'react';
+
+
 function Navbar(props) {
  
   const [showProfile, setShowProfile] = useState(false);
