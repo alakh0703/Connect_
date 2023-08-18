@@ -5,10 +5,13 @@ import burgerIcon from '../../Images/burger.png';
 import Searchbar from './Searchbar/Searchbar';
 import Profile from './Profile/Profile';
 import { useState,  } from 'react';
+import { useContext } from 'react';
+import { userContext } from '../../context/userContext';
 
 
 function Navbar(props) {
- 
+
+  const {user, setUser, device} = useContext(userContext);
   const [showProfile, setShowProfile] = useState(false);
   const showProfileHandler = () => {
     setShowProfile(!showProfile);
@@ -37,7 +40,7 @@ function Navbar(props) {
                 <img src={settingIcon} className='N_settingIcon' alt='setting' />
             </div> */}
             <div className='N_profile' onClick={showProfileHandler}>
-                <p>A</p>
+                <p>{user[0][0]}</p>
             </div>
             {showProfile && <Profile  />}
         </div>

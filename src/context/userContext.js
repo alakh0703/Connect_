@@ -9,13 +9,26 @@ const userContext = createContext("");
 
 function UserContextProvider({children}) {
     const [user, setUser] = useState(['name','email']);
+    const [device, setDevice] = useState('desktop');
 
 
 
     useEffect(() => {
+
+      // check the device
+
+      if(window.innerWidth < 600){
+        setDevice('mobile')
+      }
+      else{
+        setDevice('desktop')
+      }
+      console.log(window.innerWidth)
       // alert('useEffect')
       const token = getValidJwtToken();
       // alert(token)
+
+
       if(token){
         const config = {
           headers:{
@@ -23,7 +36,7 @@ function UserContextProvider({children}) {
           }
         };
         // alert(token)
-        axios.get('http://localhost:3000/connect/users/verifyToken', config).then((res) => {
+        axios.get('https://connect-backend-c83a.onrender.com/connect/users/verifyToken', config).then((res) => {
           // alert('verified') 
   setUser([res.data.name, res.data.email])
 }
@@ -38,7 +51,7 @@ function UserContextProvider({children}) {
   }, [])
 
   return (
-    <userContext.Provider value={{user, setUser}}>{children}</userContext.Provider>
+    <userContext.Provider value={{user, setUser, device }}>{children}</userContext.Provider>
   )
 }
 

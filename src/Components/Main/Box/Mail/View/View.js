@@ -24,7 +24,7 @@ function View(props) {
             "token": localStorage.getItem('jwtToken')
         }
         // console.log(data)
-        const response = await axios.post('http://localhost:3000/connect/email/deleteMail', data)
+        const response = await axios.post('https://connect-backend-c83a.onrender.com/connect/email/deleteMail', data)
         const responseData = await response;
         console.log(responseData)
         if (responseData.status === 200){

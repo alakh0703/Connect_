@@ -20,21 +20,23 @@ function Main(props) {
       Navigate('/'); // Navigate to login page
       return;
     }
+
+    
   
     if (new Date().getTime() > parseInt(expTime)) {
       Navigate('/'); // Navigate to login page
       return;
     }
-
+  
     // Navigate('/verified'); // Navigate to home page
-  }, []);
+  }, [props.showSidebar]);
 
   return (
     <div className='Main_main'>
       {props.showSidebar ?<Sidebar activeItem={activeItem} setActiveItem={setActiveItem} />:null}
        {/* <Sidebar /> */}
       
-    <Box searchQuery={props.searchQuery} activeItem={activeItem} /></div>
+  <Box searchQuery={props.searchQuery} activeItem={activeItem} /></div>
   )
 }
 

@@ -53,7 +53,7 @@ const getToken = () => {
     }
    
    
-    await axios.post('http://localhost:3000/connect/email/sendEmail', data).then((res) => {
+    await axios.post('https://connect-backend-c83a.onrender.com/connect/email/sendEmail', data).then((res) => {
       alert(res.data)
     }
     ).catch((err) => {

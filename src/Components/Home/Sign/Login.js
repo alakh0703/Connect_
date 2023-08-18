@@ -26,7 +26,7 @@ function Login(props) {
       return setError('* Email must end with @connect.com')
     }
     setError('');
-    axios.post('http://localhost:3000/connect/users/login', {email: email, password: password})
+    axios.post('https://connect-backend-c83a.onrender.com/connect/users/login', {email: email, password: password})
     .then((res) => {
       Navigate('/verified')
       // console.log("LOGIN :",res.data)
@@ -57,7 +57,7 @@ function Login(props) {
           <p className='clogin_title1'>New to Connect ! <span className='cforget' onClick={props.handleSwitch}>Sign Up</span></p>
           </div>
         <div className='cmail_in'>
-            <input type='text' placeholder='Email' ref={emailRef} className='cmail' />
+            <input  type='text' placeholder='Email' ref={emailRef} className='cmail' />
         </div>
         <div className='cpass_in'>
             <input type='password' placeholder='Password' ref={passwordRef} className='cpass' />

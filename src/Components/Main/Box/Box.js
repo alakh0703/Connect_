@@ -82,7 +82,7 @@ function Box(props) {
       // Navigate('/login')
       return
     }
-    await axios.get('http://localhost:3000/connect/users/retriveMails', {
+    await axios.get('https://connect-backend-c83a.onrender.com/connect/users/retriveMails', {
       params: {
         token: token
       }

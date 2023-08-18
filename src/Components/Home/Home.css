@@ -25,6 +25,13 @@
     width: 50%;
     /* background-color: rgb(188, 188, 222); */
 }
+
+@media (max-width: 768px) {
+   
+    .home_bodyRight {
+        display: none;
+    }
+}
 .title {
     font-size: 4rem;
     font-weight: 600;

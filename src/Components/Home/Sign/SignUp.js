@@ -57,7 +57,7 @@ function SignUp(props) {
       password: hash
     }
 
-    axios.post('http://localhost:3000/connect/users/register', data)
+    axios.post('https://connect-backend-c83a.onrender.com/connect/users/register', data)
     .then((res) => {
       setUser([name, email])
       alert(res.data.token)

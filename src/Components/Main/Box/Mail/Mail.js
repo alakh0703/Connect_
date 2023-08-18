@@ -22,7 +22,7 @@ function Mail(props) {
             token: token
 
         }
-        await axios.post('http://localhost:3000/connect/email/deleteForever', data).then((res) => {
+        await axios.post('https://connect-backend-c83a.onrender.com/connect/email/deleteForever', data).then((res) => {
             // alert(res.data)
             const mails = props.mails;
             const index = mails.findIndex((item) => {
@@ -56,7 +56,7 @@ function Mail(props) {
             token: token
 
         }
-        await axios.post('http://localhost:3000/connect/email/restoreMail', data).then((res) => {
+        await axios.post('https://connect-backend-c83a.onrender.com/connect/email/restoreMail', data).then((res) => {
             // alert(res.data)
             const mails = props.mails;
             const index = mails.findIndex((item) => {
@@ -94,7 +94,7 @@ function Mail(props) {
         }
 
 
-        await axios.post('http://localhost:3000/connect/email/markUnimportant', data).then((res) => {
+        await axios.post('https://connect-backend-c83a.onrender.com/connect/email/markUnimportant', data).then((res) => {
             // alert(res.data)
             const mails = props.mails;
             const index = mails.findIndex((item) => {
@@ -134,7 +134,7 @@ function Mail(props) {
             token: token
 
         }
-        await axios.post('http://localhost:3000/connect/email/markImportant', data).then((res) => {
+        await axios.post('https://connect-backend-c83a.onrender.com/connect/email/markImportant', data).then((res) => {
             // alert(res.data)
             const mails = props.mails;
             const index = mails.findIndex((item) => {

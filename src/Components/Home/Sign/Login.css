@@ -2,8 +2,12 @@
 .login_main {
     display: flex;
     flex-direction: column;
+    
     /* align-items: center; */
   }
+
+
+
   .clogin_title,
   .cmail_in,
   .cpass_in,
@@ -22,7 +26,8 @@
     width: 40%;
     height: 40px;
 
-    /* width: 200px; */
+
+   
   }
   
   .clogin {
@@ -65,4 +70,25 @@
   font-size: 1.1rem;
   margin-bottom: 10px;
   /* font-family: 'Open Sans', sans-serif; */
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .login_main {
+    width: 300px;
+    /* background-color: #feab8c; */
+  }
+  .cmail_in {
+    width: 100%;
+    /* background-color: #765d5b; */
+  }
+  .cmail {
+    width: 100%;
+    /* background-color: #f9b9b2; */
+  }
+  .clogin {
+    width: 100%;
+    /* background-color: #ba2312; */
+  }
 }
