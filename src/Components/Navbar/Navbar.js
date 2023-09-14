@@ -7,12 +7,23 @@ import Profile from './Profile/Profile';
 import { useState,  } from 'react';
 import { useContext } from 'react';
 import { userContext } from '../../context/userContext';
+import TaskManager from './TaskManager/TaskManager';
 
+import menuIcon from '../../Images/menu.png';
+
+import DeleteAccount from './Profile/DeleteAccount/DeleteAccount';
+import Update from './Profile/Update/Update';
 
 function Navbar(props) {
 
   const {user, setUser, device} = useContext(userContext);
   const [showProfile, setShowProfile] = useState(false);
+  const [showFeatures, setShowFeatures] = useState(false);
+  const [showTask, setShowTask] = useState(false);
+  const [showUpdate, setShowUpdate] = useState(false);
+
+
+
   const showProfileHandler = () => {
     setShowProfile(!showProfile);
    
@@ -23,8 +34,34 @@ function Navbar(props) {
        props.sss(!props.ss);
     }
 
+    const showFeatureHandler = () => {
+      findDevice();
+      setShowFeatures(!showFeatures);
+    }
 
-  
+    const showTaskHandler = () => {
+      setShowFeatures(false);
+      setShowTask(!showTask);
+    }
+
+    const [delete1,setDelete] = React.useState(false);
+
+    const [isMobile, setIsMobile] = React.useState('')
+
+    const findDevice = () => {
+      if(window.innerWidth <= 600){
+        setIsMobile(true)
+      }else{
+        setIsMobile(false)
+      }
+    }
+    React.useEffect(() => {
+      if(window.innerWidth <= 600){
+        setIsMobile(true)
+      }else{
+        setIsMobile(false)
+      }
+    }, [])
     
   return (
     <div className='N_main'>
@@ -42,8 +79,24 @@ function Navbar(props) {
             <div className='N_profile' onClick={showProfileHandler}>
                 <p>{user[0][0]}</p>
             </div>
-            {showProfile && <Profile  />}
+            <div className='N_menuIcon'>
+              <img src={menuIcon} onClick={showFeatureHandler} className={showFeatures ? 'N_menuIcon2' : 'N_menuIcon1 '} alt='menu' />
+              {showFeatures && <div className={isMobile ? 'Features_m' : 'Features'}>
+                <div className={isMobile ? 'f-1_m f_m' : 'f-1 f'} onClick={showTaskHandler}>
+                  <p>Task Manager</p>
+                </div>
+               
+             
+               
+               
+              </div>}
+              
+            </div>
+            {showProfile && <Profile setSP={setShowProfile} setShowUpdate={setShowUpdate} delete1={setDelete} />}
+          {showTask && <TaskManager setShowTask={showTaskHandler}/>}
         </div>
+        {delete1 && <DeleteAccount delete1={setDelete} />}
+          { showUpdate && <Update showUpdate={showUpdate} setShowUpdate={setShowUpdate}/>}
 
     </div>
   )

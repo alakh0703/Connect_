@@ -10,7 +10,7 @@ const userContext = createContext("");
 function UserContextProvider({children}) {
     const [user, setUser] = useState(['name','email']);
     const [device, setDevice] = useState('desktop');
-
+   
 
 
     useEffect(() => {
@@ -40,6 +40,10 @@ function UserContextProvider({children}) {
           // alert('verified') 
   setUser([res.data.name, res.data.email])
 }
+//         axios.get('https://connect-backend-c83a.onrender.com/connect/users/verifyToken', config).then((res) => {
+//           // alert('verified') 
+//   setUser([res.data.name, res.data.email])
+// }
 )
 .catch((err) => {
   console.log(err)

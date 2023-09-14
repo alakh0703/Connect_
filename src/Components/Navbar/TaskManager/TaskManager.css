@@ -1,0 +1,184 @@
+.task-manager {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow:  5px 5px 7px #d3d3d3,
+    -5px -5px 7px #ededed;
+    position: absolute;
+    top: 7vh;
+    z-index: 10000000;
+    background-color: white;
+    width: 100vw;
+  }
+  
+.task-manager_m {
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow:  5px 5px 7px #d3d3d3,
+    -5px -5px 7px #ededed;
+    position: absolute;
+    right: 0;
+    top: 7vh;
+    z-index: 10000000;
+    background-color: white;
+    width: 100vw;
+  }
+  
+  .task-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .task-input input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .task-input button {
+    padding: 8px 12px;
+    background-color: rgb(227, 152, 152);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+ .li_1 {
+  margin-right: 20px;
+ }
+  .task-btns {
+    width: 100px;
+    display: flex;
+    margin-left: 100px;
+  }
+  .tickIcon, .crossIcon {
+    cursor: pointer;
+      /* width: 50%; */
+      width: 20px;
+      margin-right: 10px;
+  }
+  .task-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .task-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 5px;
+  }
+  
+  .task-list li button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .task-header > p {
+    cursor: pointer;
+  }
+  .tasks-cat {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+  } 
+  .tasks-cat1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    border-right: 1px solid #ccc;
+    cursor: pointer;
+
+  }
+  .tasks-cat2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    cursor: pointer;
+
+  }
+
+  .active {
+    font-weight: 800;
+  }
+
+.tasks-main {
+    height: 300px;
+    overflow-y: scroll;
+}
+/* cdv */
+@keyframes rotate {
+  from {
+      transform: rotate(0deg);
+  }
+  to { 
+      transform: rotate(360deg);
+  }
+}
+
+
+@-webkit-keyframes rotate {
+  from {
+      -webkit-transform: rotate(0deg);
+  }
+  to { 
+      -webkit-transform: rotate(360deg);
+  }
+}
+
+.load {
+width: 40px;
+height: 40px;
+margin: 110px auto 0;
+border:solid 7px #fc8484;
+border-radius: 50%;
+border-right-color: transparent;
+border-bottom-color: transparent;
+ -webkit-transition: all 0.5s ease-in;
+  -webkit-animation-name:             rotate; 
+  -webkit-animation-duration:         1.0s; 
+  -webkit-animation-iteration-count:  infinite;
+  -webkit-animation-timing-function: linear;
+    
+     transition: all 0.5s ease-in;
+  animation-name:             rotate; 
+  animation-duration:         1.0s; 
+  animation-iteration-count:  infinite;
+  animation-timing-function: linear; 
+}
+
+
+.btn_addTask {
+  background-color: rgb(227, 152, 152);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 32px;
+
+}

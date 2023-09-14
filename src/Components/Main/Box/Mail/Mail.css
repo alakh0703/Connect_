@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Agdasima&family=Roboto:wght@300&display=swap');
 
-
+.lala {
+    display: flex;
+}
 .m_main {
     width: 100%;
     display: flex;
@@ -13,12 +15,41 @@
     height: 40px;
     position: relative;
     font-family: 'Roboto', sans-serif;
+    z-index: 0;
 }
-.m_left {
-    width: 1.5%;
-    margin-left: 5px;
+.imp_lala {
     display: flex;
     justify-content: center;
+    align-items: center;
+    /* background-color: aqua; */
+    height: 100%;
+}
+
+.m_main_m {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* padding-top: 2.5px;
+    padding-bottom: 2.5px; */
+    /* border-top: 1px solid #ccc; */
+    border-bottom: 1px solid #eae5e5;
+    cursor: pointer;
+    align-items: center;
+    height: 70px;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    z-index: 0;
+}
+.m_left {
+    width: 100%;
+    height: 100%;
+    /* margin-left: 5px; */
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    /* background-color: #c91515; */
     align-items: center;
 }
 .starIcon {
@@ -37,6 +68,14 @@
     align-items: center;
     font-weight: 500;
 }
+.m_mid_m {
+    padding-left: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 600;
+}
 .m_right {
     display: flex;
     justify-content: flex-start;
@@ -50,6 +89,7 @@
     font-weight: 300;
     font-size: 0.9rem;
     color: #868585;
+    display: inline-block;
 }
 .m_main:hover {
     /* border-radius: 7px; */
@@ -63,9 +103,9 @@ box-shadow:  5px 5px 8px #d7d7d7,
 }
 
 .starIcon2 {
-    width: 14px;
+    width: 10px;
     cursor: pointer;
-    height: 14px;
+    height: 10px;
     border: 2px solid #9b9898;
 }
 
@@ -74,8 +114,8 @@ box-shadow:  5px 5px 8px #d7d7d7,
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    width: 15px;
-    height: 15px;
+    width: 5px;
+    height: 5px;
     border: 2px solid #aba7a7;
     border-radius: 4px;
     outline: none;
@@ -99,4 +139,20 @@ box-shadow:  5px 5px 8px #d7d7d7,
     color: #9b9898;
     position: absolute;
     right: 50px;
+}
+.m_bottom_m {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 4%;
+    margin-top: 2px;
+}
+.lala_fc_m {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.starIcon2 {
+    cursor: pointer;
+    border: 2px solid #9b9898;
 }

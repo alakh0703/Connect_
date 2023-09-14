@@ -1,8 +1,19 @@
 .view_main {
     width: 80%;
     background-color: rgb(255, 255, 255);
-    height: 100%;
+    height: 95%;
     margin-top: 6%;
+    border-radius: 6px;
+    /* background: #e0e0e0; */
+    box-shadow:  6px 6px 11px #5a5a5a,
+                 -6px -6px 11px #ffffff;
+}
+.view_main_m {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    height: 95%;
+    margin-top: 6%;
+    padding-top: 20px;
     border-radius: 6px;
     /* background: #e0e0e0; */
     box-shadow:  6px 6px 11px #5a5a5a,
@@ -17,8 +28,22 @@
     align-items: center;
     padding: 5px;
 }
+.view_nav_m {
+    width: 100%;
+    background-color: rgb(240, 222, 209);
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    height: 40px;
+}
 .view_back {
     width:2%;
+    cursor: pointer;
+}
+.view_back_m {
+    width: 7%;
     cursor: pointer;
 }
 .view_subject {
@@ -41,6 +66,14 @@
     justify-content: flex-end;
 
 }
+.view_subject_right_m {
+    width: 60%;
+    /* background-color: aqua; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
 .view_print {
     width: 8%;
     cursor: pointer;
@@ -49,6 +82,7 @@
 }
 .view_subject_name {
     font-size: 1.5rem;
+
 }
 
 .view_sender {
@@ -73,9 +107,23 @@
     justify-content: center;
     margin-right: 1%;
 }
+.view_sender_profile_m {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgb(239, 208, 186);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 3%;
+}
 .view_sender_name {
     font-size: 1.1rem;
     margin-right: 1%;
+}
+.view_sender_name_m {
+    font-size: 1.1rem;
+    margin-right: 2%;
 }
 
 .view_body {
@@ -97,17 +145,7 @@
     padding-bottom: 20px;
     /* background-color: aquamarine; */
 }
-.view_footer_btn {
-    width: 10%;
-    height: 30px;
-    border-radius: 5px;
-    /* border: none; */
-    /* outline: none; */
-    cursor: pointer;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(198, 192, 191);
 
-}
 
 .deleteConfirm {
     border: 1px solid #ccc;
@@ -160,4 +198,27 @@
 .dc3:hover {
     background-color: rgb(198, 192, 191);
     color: white;
+}
+
+.view_sender_email {
+    color: #6d6b6b;
+    font-size: 0.85rem;
+}
+
+.nameAt0 {
+    color: rgb(0, 0, 0);
+}
+.view_footer_btn {
+    width: 10%;
+    height: 30px;
+    border-radius: 5px;
+    /* border: none; */
+    /* outline: none; */
+    cursor: pointer;
+    background-color: rgb(240, 134, 134);
+    border: 1px solid rgb(198, 192, 191);
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
 }

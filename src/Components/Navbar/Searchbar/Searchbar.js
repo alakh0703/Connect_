@@ -13,8 +13,9 @@ function Searchbar(props) {
         <div className='S_searchicon'>
             <img src={searchIcon} className='S_icon' alt='search' />
         </div>
+        <div className='S_2'>
         <input className='S_searchbar' onChange={handleChange} type='text' placeholder='Search' />
-
+        </div>
     </div>
   )
 }

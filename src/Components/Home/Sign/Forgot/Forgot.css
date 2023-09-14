@@ -1,0 +1,60 @@
+/* Style for the main container */
+.forgot-container {
+    font-family: 'Open Sans', sans-serif;
+color: rgb(106, 97, 97);
+width: 90%;
+/* background-color: #0056b3; */
+
+  }
+  
+  /* Style for the form elements */
+  .forgot-form {
+    margin-top: 20px;
+  }
+  
+  .forgot-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .forgot-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .forgot-form button {
+    background-color: #f0aa93;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .forgot-form button:hover {
+    background-color: hsl(25, 85%, 70%);
+  }
+  
+  /* Style for success message */
+  .forgot-success {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #ffd6d6;
+    color: #571515;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+  }
+  
+  .b2L {
+    cursor: pointer;
+  }
+  .forgot-error {
+
+    color: red;
+    font-weight: 600;
+  }

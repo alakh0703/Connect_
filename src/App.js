@@ -6,6 +6,7 @@ import { UserContextProvider } from './context/userContext';
 import Home from './Components/Home/Home';
 import Main from './Components/Main/Main';
 import Navbar from './Components/Navbar/Navbar';
+import ChatHome from './Components/Chats/ChatHome';
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(true);
@@ -22,10 +23,13 @@ function App() {
               element={
                 <div className='app_main'>
                   <Navbar setSearchQuery={setSearchQuery} sss={setShowSidebar} ss={showSidebar} />  
-                  <Main searchQuery={searchQuery} showSidebar={showSidebar} />
+                  <Main  ss={showSidebar} searchQuery={searchQuery} sss={setShowSidebar} showSidebar={showSidebar} />
                 </div>
               }
             />
+            <Route path='/connectVerse' element={
+              <ChatHome />
+            } />
           </Routes>
         </Router>
       </UserContextProvider>

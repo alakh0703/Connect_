@@ -1,0 +1,22 @@
+.mb_main {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    
+    width: 30%;
+    padding: 10px 20px;
+    background-color: #f98f8f;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 1000;
+  }
+  
+  .mb_main.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
