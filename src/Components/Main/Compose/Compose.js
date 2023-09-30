@@ -13,7 +13,7 @@ import { faL } from '@fortawesome/free-solid-svg-icons'
 
 
 function Compose(props) {
-
+const [sendText, setSendText] = React.useState('Send')
   const {user, setUser} = useContext(userContext);
   const [mailCheck, setMailCheck] = React.useState('')
 // alert(user)
@@ -44,22 +44,44 @@ const getToken = () => {
 }
 
  const handleSend = async (text) => {
-
+    setSendText('Sending...')
     const receipient = receipientRef.current.value
     const subject = subjectRef.current.value
     // const message = messageRef.current.value
     const message = text;
     const unique_id = uuid();
 
+    if(!receipient){
+      alert('Please enter receipient')
+    }
+
+    if(!subject){
+      alert('Please enter subject')
+    }
+
+    if(!message){
+      alert('Please enter message')
+    }
+    if(receipient.slice(-12) !== '@connect.com'){
+      setMailCheck('    * Invalid receipient')
+      setSendText('Send')
+
+      return
+    }else{
+
+      setMailCheck('')
+    }
 
     if(receipient === '' || subject === '' || message === ''){
+      setSendText('Send')
+
       setMailCheck('    * Please fill all fields')
       return
     }else{
+
       setMailCheck('')
     }
     const token = getToken()
-    alert(token)
     // alert(token)
     const data = {
       unique_id: unique_id,
@@ -71,13 +93,15 @@ const getToken = () => {
       fromName: user[0]
     }
    
-       props.setShowCompose(false)
 
     await axios.post('https://connect-backend-c83a.onrender.com/connect/email/sendEmail', data).then((res) => {
-      alert(res.data)
+      // alert(res.data)
+      setSendText('Send')
+      props.setShowCompose(false)
     }
     ).catch((err) => {
       alert(err)
+      props.setShowCompose(false)
     }
     // await axios.post('https://connect-backend-c83a.onrender.com/connect/email/sendEmail', data).then((res) => {
     //   alert(res.data)
@@ -86,8 +110,9 @@ const getToken = () => {
     //   alert(err)
     // }
     )
+    setSendText('Send')
 
-    props.setShowCompose(false)
+ 
 
     
 
@@ -118,10 +143,7 @@ const getToken = () => {
         <div className='compose_nav'>
             <p className='C_newMessage'>New Message</p>
             <div className='C_to'>
-             {!isMobile && <div>
-              {isMin ? <img src={min} onClick={handleMin1} alt='min' className='C_min c_img'/>:  <img src={max} onClick={handleMax1} alt='max' className='C_max c_img'/>
-
-}</div>}
+           
                 <img src={cross} alt='cross' onClick={handleCross} className='C_cross c_img'/>
             </div>
         </div>
@@ -138,7 +160,7 @@ const getToken = () => {
         {/* <div className='compose3'>
           <textarea className='compose_textarea' ref={messageRef} placeholder='Type your message here...'></textarea>
         </div> */}
-        <TextEditor handleSend={handleSend} />
+        <TextEditor handleSend={handleSend} sendText={sendText} />
         <div className='footer'>
           {/* <button className={isMin ? 'send2' : 'send'} onClick={handleSend}>Send</button> */}
 

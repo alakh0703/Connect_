@@ -40,7 +40,7 @@ const [signText, setSignText] = useState('Sign Up')
   const handleSubmit =async (e) => {
 
     e.preventDefault();
-    const email = emailRef.current.value;
+    const email = emailRef.current.value
     const password = passwordRef.current.value;
     const name = nameRef.current.value;
     const confirmPassword = confirmPasswordRef.current.value;
@@ -51,7 +51,6 @@ const [signText, setSignText] = useState('Sign Up')
 
 
     // console.log(email, password, name, confirmPassword)
-
     if(!email || !password || !name || !confirmPassword || !securityQuestion1 || !securityQuestion2 || !securityAnswer1 || !securityAnswer2) {
       return setError('* All fields are required')
     }
@@ -179,7 +178,7 @@ const [signText, setSignText] = useState('Sign Up')
         
         }
         
-       {!addSecurityQ && <div className='SQ_main'>
+        <div className={!addSecurityQ ? 'SQ_main':'hide'}>
          <div className='security-question'>
            <select className='security-question-select' ref={securityQuestion1Ref}>
              <option value='Who is your best friend ?'>Who is your best friend ?</option>
@@ -204,11 +203,12 @@ const [signText, setSignText] = useState('Sign Up')
            <input type='text' ref={securityAnswer2Ref} placeholder='Answer to Security Question 2' className='security-question-answer' />
          </div>
          {/* Add more security-question blocks as needed */}
-       </div> }
-       <p className='cerror'>{error}</p>
+       </div> 
        <br />
 
         <div className='clogin_in'>
+        <p className='cerror'>{error}</p>
+
             <button className='clogin' type='submit' onClick={handleSubmit}>
             <Link to='/' id='login_btn'>{signText }</Link>
 

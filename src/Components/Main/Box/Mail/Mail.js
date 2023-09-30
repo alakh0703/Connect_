@@ -2,6 +2,9 @@ import React from 'react'
 import star from '../../../../Images/star.svg'
 import './Mail.css';
 import axios from 'axios';
+import delete0 from '../../../../Images/delete0.svg';
+import restore0 from '../../../../Images/restore.png';
+
 import { EditorState, convertFromRaw } from 'draft-js';
 // import {View} from '../View/View.js'
 function Mail(props) {
@@ -42,38 +45,23 @@ function Mail(props) {
             token: token
 
         }
-        await axios.post('https://connect-backend-c83a.onrender.com/connect/email/deleteForever', data).then((res) => {
-            // alert(res.data)
-            const mails = props.mails;
-            const index = mails.findIndex((item) => {
-                return item['unique_id'] === props.id
-            })
-            mails.splice(index, 1);
-            // props.setMails(mails)
+        const mails = props.mails;
+        const index = mails.findIndex((item) => {
+            return item['unique_id'] === props.id
+        })
+        mails.splice(index, 1);
+        // props.setMails(mails)
 
-            event.target.checked = false
-            // props.retriveMails();
+        event.target.checked = false
+        props.sm(mails)
+        await axios.post('https://connect-backend-c83a.onrender.com/connect/email/deleteForever', data).then((res) => {
+         
 
         }
         ).catch((err) => {
             alert(err)
         }
-        // await axios.post('https://connect-backend-c83a.onrender.com/connect/email/deleteForever', data).then((res) => {
-        //     // alert(res.data)
-        //     const mails = props.mails;
-        //     const index = mails.findIndex((item) => {
-        //         return item['unique_id'] === props.id
-        //     })
-        //     mails.splice(index, 1);
-        //     // props.setMails(mails)
-
-        //     event.target.checked = false
-        //     // props.retriveMails();
-
-        // }
-        // ).catch((err) => {
-        //     alert(err)
-        // }
+       
         )
 
     }
@@ -92,16 +80,18 @@ function Mail(props) {
             token: token
 
         }
+        const mails = props.mails;
+        const index = mails.findIndex((item) => {
+            return item['unique_id'] === props.id
+        })
+        mails[index]['deleted'] = false;
+        // props.setMails(mails)
+
+        event.target.checked = false
+        props.sm(mails)
         await axios.post('https://connect-backend-c83a.onrender.com/connect/email/restoreMail', data).then((res) => {
             // alert(res.data)
-            const mails = props.mails;
-            const index = mails.findIndex((item) => {
-                return item['unique_id'] === props.id
-            })
-            mails[index]['deleted'] = false;
-            // props.setMails(mails)
-
-            event.target.checked = false
+         
 
         }
 
@@ -146,19 +136,20 @@ function Mail(props) {
             token: token
 
         }
+        const mails = props.mails;
+        const index = mails.findIndex((item) => {
+            return item['unique_id'] === props.id
+        })
+        mails[index]['imp'] = false;
+        // props.setMails(mails)
 
+        event.target.checked = false
+        props.sm(mails)
 
         await axios.post('https://connect-backend-c83a.onrender.com/connect/email/markUnimportant', data).then((res) => {
             // alert(res.data)
-            const mails = props.mails;
-            const index = mails.findIndex((item) => {
-                return item['unique_id'] === props.id
-            })
-            mails[index]['imp'] = false;
-            // props.setMails(mails)
-
-            event.target.checked = false
-            props.retriveMails();
+           
+            // props.retriveMails();
 
         }
         ).catch((err) => {
@@ -204,19 +195,20 @@ function Mail(props) {
             token: token
 
         }
+        const mails = props.mails;
+        const index = mails.findIndex((item) => {
+            return item['unique_id'] === props.id
+        })
+        mails[index]['imp'] = true;
 
-       
+        event.target.checked = true
+        const sm = props.sm
+        sm(mails)
 
         await axios.post('https://connect-backend-c83a.onrender.com/connect/email/markImportant', data).then((res) => {
             // alert(res.data)
-            const mails = props.mails;
-            const index = mails.findIndex((item) => {
-                return item['unique_id'] === props.id
-            })
-            mails[index]['imp'] = true;
-
-            event.target.checked = true
-            props.retriveMails();
+            
+            // props.retriveMails();
 
         }
         ).catch((err) => {
@@ -245,7 +237,12 @@ function Mail(props) {
     }
     React.useEffect(() => {
         checkDevice();
-      
+      if(current === 'sent'){
+        props.setTypee('sent')
+      }
+      else {
+        props.setTypee('inbox')
+      }
     }, [])
 
   return (
@@ -277,6 +274,7 @@ function Mail(props) {
     <p>{(props.to).slice(0,25)}</p>
 </div>: null
 
+
     }
         
       {!isMobile &&   <div className='m_right'>
@@ -300,8 +298,13 @@ function Mail(props) {
         </div></div>}
         {current === "trash" ? 
         <div className="restore">
-        <button className="restore_btn" onClick={restoreMailHandler}>Restore</button>
-        <button className="deleteForever_btn" onClick={deleteForeverHandler}>Delete Forever</button>
+        <button className="restore_btn" onClick={restoreMailHandler}>
+            <img src={restore0} alt='star' className='starIcon'/>
+
+        </button>
+        <button className="deleteForever_btn" onClick={deleteForeverHandler}>
+            <img src={delete0} alt='star' className='starIcon'/>
+        </button>
     </div>: null}
         
       

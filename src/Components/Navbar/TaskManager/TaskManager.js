@@ -76,16 +76,16 @@ const TaskManager = (props) => {
 
         await axios.post('https://connect-backend-c83a.onrender.com/connect/tasks/addTask', {token,newTask}).then((res) => {
 
-        const data = res.data;
-        // alert(data.length)
-console.log(data)
-        const updatedTasks = []
-        for(let i=0; i<data[0].length; i++){
-          updatedTasks.push(data[0][i].description)
+//         const data = res.data;
+//         // alert(data.length)
+// console.log(data)
+//         const updatedTasks = []
+//         for(let i=0; i<data[0].length; i++){
+//           updatedTasks.push(data[0][i].description)
 
-        }
-        console.log("data", data)
-        setTasks(updatedTasks)
+//         }
+//         console.log("data", data)
+//         setTasks(updatedTasks)
         }
         ).catch((err) => {
           setTasks(oldTasks)
@@ -133,16 +133,16 @@ console.log(data)
       setTasks(updatedTasks);
       await axios.post('https://connect-backend-c83a.onrender.com/connect/tasks/deleteTask', {token,updatedTasks}).then((res) => {
 
-      const data = res.data;
-      console.log(data)
-      const updatedTasks = []
-      for(let i=0; i<data[0].length; i++){
-        updatedTasks.push(data[0][i].description)
+      // const data = res.data;
+      // console.log(data)
+      // const updatedTasks = []
+      // for(let i=0; i<data[0].length; i++){
+      //   updatedTasks.push(data[0][i].description)
 
-      }
-      console.log("data", data)
-      // alert("Task Deleted")
-      setTasks(updatedTasks)
+      // }
+      // console.log("data", data)
+      // // alert("Task Deleted")
+      // setTasks(updatedTasks)
   
       }
       ).catch((err) => {
@@ -164,15 +164,15 @@ console.log(data)
   
         await axios.post('https://connect-backend-c83a.onrender.com/connect/tasks/deleteTask2', {token,updatedTasks}).then((res) => {
   
-        const data = res.data;
-        console.log(data)
-        const updatedTasks = []
-        for(let i=0; i<data[1].length; i++){
-          updatedTasks.push(data[0][i].description)
+        // const data = res.data;
+        // console.log(data)
+        // const updatedTasks = []
+        // for(let i=0; i<data[1].length; i++){
+        //   updatedTasks.push(data[0][i].description)
 
-        }
+        // }
 
-        setCompletedTasks(updatedTasks)
+        // setCompletedTasks(updatedTasks)
     
         }
         ).catch((err) => {
@@ -193,25 +193,26 @@ console.log(data)
         const uctasks = [...completedTasks, tasks[index]]
         const token = getToken()
 
+
        await axios.post('https://connect-backend-c83a.onrender.com/connect/tasks/completeTask', {token,updatedTasks, uctasks}).then((res) => {
         
         //  alert("Task Completed")
 
-        const data = res.data;
-        console.log(data)
-        const updatedTasks = []
-        const updatedCompletedTasks = []
-        for(let i=0; i<data[0].length; i++){
-          updatedTasks.push(data[0][i].description)
+        // const data = res.data;
+        // console.log(data)
+        // const updatedTasks = []
+        // const updatedCompletedTasks = []
+        // for(let i=0; i<data[0].length; i++){
+        //   updatedTasks.push(data[0][i].description)
         
-        }
-        for(let i=0; i<data[1].length; i++){
-          updatedCompletedTasks.push(data[1][i].description)
+        // }
+        // for(let i=0; i<data[1].length; i++){
+        //   updatedCompletedTasks.push(data[1][i].description)
         
-        }
+        // }
 
-        setTasks(updatedTasks)
-        setCompletedTasks(updatedCompletedTasks)
+        // setTasks(updatedTasks)
+        // setCompletedTasks(updatedCompletedTasks)
 
 
 
@@ -240,22 +241,22 @@ console.log(data)
 
         const pendingTasks = [...tasks, completedTasks[index]]
         await axios.post('https://connect-backend-c83a.onrender.com/connect/tasks/restoreTask', {token,updatedTasks, pendingTasks}).then((res) => {
-          const data = res.data;
-        // alert("Task Restored")
-          const updatedTasks = []
-          const updatedCompletedTasks = []
-          for(let i=0; i<data[0].length; i++){
-            updatedTasks.push(data[0][i].description)
+        //   const data = res.data;
+        // // alert("Task Restored")
+        //   const updatedTasks = []
+        //   const updatedCompletedTasks = []
+        //   for(let i=0; i<data[0].length; i++){
+        //     updatedTasks.push(data[0][i].description)
           
-          }
-          for(let i=0; i<data[1].length; i++){
-            updatedCompletedTasks.push(data[1][i].description)
+        //   }
+        //   for(let i=0; i<data[1].length; i++){
+        //     updatedCompletedTasks.push(data[1][i].description)
           
-          }
-          console.log(updatedTasks)
-          console.log(updatedCompletedTasks)
-          setTasks(updatedTasks)
-          setCompletedTasks(updatedCompletedTasks)
+        //   }
+        //   console.log(updatedTasks)
+        //   console.log(updatedCompletedTasks)
+        //   setTasks(updatedTasks)
+        //   setCompletedTasks(updatedCompletedTasks)
     }
       
           ).catch((err) => {

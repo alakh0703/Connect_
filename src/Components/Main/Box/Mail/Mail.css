@@ -156,3 +156,34 @@ box-shadow:  5px 5px 8px #d7d7d7,
     cursor: pointer;
     border: 2px solid #9b9898;
 }
+.restore {
+    display: flex;
+    height: 100%;
+    margin-right: 50px;
+}
+.restore_btn {
+    width: 40px;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.restore_btn:hover{
+    background-color: #a7f970;
+    border-radius: 5px;
+}
+.deleteForever_btn {
+    width: 40px;
+    background-color: red;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.starIcon {
+    width: 25px;
+
+z-index: 1;
+}

@@ -52,6 +52,7 @@
 
 .cerror {
  color: red;
+ margin-bottom: 10px;
   
 }
 .security-question {
@@ -115,3 +116,7 @@ animation: slideDown 1s ease-in-out;
   background: #ffbebe;
 }
 
+
+.hide {
+  display: none;
+}

@@ -30,12 +30,22 @@ function View(props) {
       "unique_id": props.id,
       "token": localStorage.getItem('jwtToken')
     };
+    // const m = props.mails;
+    const m = props.mails;
+    const index = m.findIndex((item) => {
+      return item['unique_id'] === props.id;
+    }
+    );
+    m.splice(index, 1);
+    props.sm(m);
+    props.setViewMail(false);
+
     const response = await axios.post('https://connect-backend-c83a.onrender.com/connect/email/deleteMail', data);
     const responseData = await response;
     console.log(responseData);
-    if (responseData.status === 200) {
-      alert("Mail Deleted");
-      props.setViewMail(false);
+
+    if (responseData.status != 200) {
+      alert("Error in deleting mail");
     }
   }
 
@@ -60,13 +70,13 @@ React.useEffect(() => {
       <div className='view_subject'>
         <p className='view_subject_name'>{props.subject}</p>
         <div className={isMobile ? 'view_subject_right_m':'view_subject_right'}>
-          <img src={delete0} onClick={deleteHandler} alt='delete' className='view_deleyyyte view_print' />
+         {props.typee === 'sent' ? null : <img src={delete0} onClick={deleteHandler} alt='delete' className='view_deleyyyte view_print' />}
           <img src={print} alt='print' className='view_print' />
         </div>
       </div>
       <div className='view_sender'>
         <div className={isMobile ? 'view_sender_profile_m':'view_sender_profile'}>
-          <p className='nameAt0'>{(props.name).charAt(0)}</p>
+          <p className='nameAt0'>{((props.email).charAt(0)).toUpperCase()}</p>
         </div>
         <p className={isMobile ? 'view_sender_name_m':'view_sender_name'}>{props.name}</p>
         <p className='view_sender_email'>{e_mail}</p>

@@ -6,7 +6,6 @@ import { UserContextProvider } from './context/userContext';
 import Home from './Components/Home/Home';
 import Main from './Components/Main/Main';
 import Navbar from './Components/Navbar/Navbar';
-import ChatHome from './Components/Chats/ChatHome';
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(true);
@@ -27,9 +26,7 @@ function App() {
                 </div>
               }
             />
-            <Route path='/connectVerse' element={
-              <ChatHome />
-            } />
+           
           </Routes>
         </Router>
       </UserContextProvider>

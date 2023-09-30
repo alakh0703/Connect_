@@ -20,7 +20,6 @@ function TextEditor(props) {
     const content = JSON.stringify(convertToRaw(editorState.getCurrentContent()));
     
     // Make an API call to save the content to the backend
-    alert(content);
     props.handleSend(content)
   };
 
@@ -34,7 +33,9 @@ function TextEditor(props) {
         <button onClick={() => handleInlineStyleClick('BOLD')}>Bold</button>
         <button onClick={() => handleInlineStyleClick('ITALIC')}>Italic</button>
         {/* You can add more buttons for other formatting options */}
-        <button onClick={handleSaveClick}>Save</button>
+        <br />
+        <br />
+        <button onClick={handleSaveClick} className='btn_send' id='ll'>{props.sendText}</button>
       </div>
     </div>
   );

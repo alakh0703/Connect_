@@ -74,7 +74,7 @@ const [resetText, setResetText] = useState('Reset Password')
     }
     await axios.post(`https://connect-backend-c83a.onrender.com/connect/users/resetPassword`, data )
     .then(res => {
-        console.log(res)
+        // console.log(res)
     })
     .catch(err => {
         console.log(err)

@@ -40,12 +40,9 @@ const [btnText, setBtnText] = useState('Login')
     .then((res) => {
       
       Navigate('/verified')
-      // console.log("LOGIN :",res.data)
-      // console.log(res.data.result['name'])
+    
       setUser([res.data.result['name'], res.data.result['email']])
-      const expirationTimeInSeconds = 3600; // Example: 1 hour (adjust as per your token's actual expiration time)
-
-      // Calculate the expiration timestamp in milliseconds from the current time
+      const expirationTimeInSeconds = 3600; 
       const expirationTimestamp = new Date().getTime() + expirationTimeInSeconds * 1000;
       localStorage.setItem('jwtTokenExpiration', expirationTimestamp.toString());
       localStorage.setItem('jwtToken', JSON.stringify(res.data.token));
@@ -57,24 +54,7 @@ const [btnText, setBtnText] = useState('Login')
       console.log(err)
     })
     setBtnText('Login')
-    // axios.post('https://connect-backend-c83a.onrender.com/connect/users/login', {email: email, password: password})
-    // .then((res) => {
-    //   Navigate('/verified')
-    //   // console.log("LOGIN :",res.data)
-    //   // console.log(res.data.result['name'])
-    //   setUser([res.data.result['name'], res.data.result['email']])
-    //   const expirationTimeInSeconds = 3600; // Example: 1 hour (adjust as per your token's actual expiration time)
-
-    //   // Calculate the expiration timestamp in milliseconds from the current time
-    //   const expirationTimestamp = new Date().getTime() + expirationTimeInSeconds * 1000;
-    //   localStorage.setItem('jwtTokenExpiration', expirationTimestamp.toString());
-    //   localStorage.setItem('jwtToken', JSON.stringify(res.data.token));
-    // })
-    // .catch((err) => {
-    //   console.log(err)
-    // })
-
-
+ 
 
 
 
